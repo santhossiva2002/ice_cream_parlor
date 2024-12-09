@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #382369;
+    color: white;
+    border-bottom: 2px solid #ddd;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.filter-section,
+.flavors-section,
+.allergens-section {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.filter-section {
+    max-width: 220px;
+}
+
+.flavors-section {
+    text-align: center;
+    max-width: 650px;
+}
+
+.flavors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.flavor-card {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+    background-color: #f9f9f9;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flavor-card h3 {
+    margin: 10px 0;
+}
+
+.allergens-section {
+    max-width: 250px;
+}
+
+.filter-section label,
+.allergens-section label {
+    display: block;
+    margin: 12px 0;
+}
+
+.filter-section input[type="radio"],
+.allergen-checkbox {
+    margin-right: 10px;
+}
+
+.allergen-item {
+    margin: 8px 0;
+}
+
+.cart {
+    margin-top: 20px;
+    text-align: center;
+}
+/* Search Bar Styling */
+#search {
+width: 100%;
+max-width: 400px;
+padding: 12px 20px;
+font-size: 16px;
+border: 2px solid #ddd;
+border-radius: 25px;
+outline: none;
+background-color: #fff;
+transition: border-color 0.3s ease;
+box-sizing: border-box;
+}
+
+#search:focus {
+border-color: #ff8c00;
+}
+
+#search::placeholder {
+color: #888;
+}
+
+#search-container {
+position: relative;
+display: inline-block;
+}
+
+#search-icon {
+position: absolute;
+top: 50%;
+left: 12px;
+transform: translateY(-50%);
+font-size: 18px;
+color: #888;
+pointer-events: none;
+}
+
+/* Optional: Add a background to the search bar container if desired */
+#search-container {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 20px;
+}
+/* Styling for the 'Add to Cart' button */
+.add-to-cart-btn {
+display: inline-block;
+padding: 12px 20px;
+font-size: 16px;
+color: white;
+background-color: #ff8c00; /* Button background color */
+text-align: center;
+text-decoration: none;
+border-radius: 5px;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+background-color: #e07b00; /* Darker shade on hover */
+transform: translateY(-2px); /* Small lift effect */
+}
+
+.add-to-cart-btn:active {
+background-color: #cc6a00; /* Even darker shade on click */
+transform: translateY(0); /* Reset lift effect */
+}
+
+.cart {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.cart ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cart li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 1px solid #6e6262;
+}
+
+.cart a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.cart a:hover {
+    color: #ffffff;
+}
+

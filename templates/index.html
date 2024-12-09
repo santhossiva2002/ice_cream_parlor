@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Parlor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <header>
+        <h1>All Ice Cream Flavors</h1>
+        <input type="text" id="search" placeholder="Search for a flavor..." onkeyup="searchFlavors()" />
+         
+        <div class="cart">
+            <a href="{{ url_for('cart.view_cart') }}">View Cart</a>
+        </div>
+    </header>
+    <div class="container">
+       
+        <div class="filter-section">
+            <h2>Filter</h2>
+            <label>
+                <input type="radio" name="filter" value="all" onclick="filterFlavors()" checked> All
+            </label>
+            <label>
+                <input type="radio" name="filter" value="seasonal" onclick="filterFlavors()"> Seasonal
+            </label>
+            <label>
+                <input type="radio" name="filter" value="non-seasonal" onclick="filterFlavors()"> Non-Seasonal
+            </label>
+        </div>
+
+     
+        <div class="flavors-section">
+            <h2>Our Flavors</h2>
+            <div class="flavors">
+                {% for flavor in flavors %}
+                <div class="flavor-card" data-is-seasonal="{{ flavor['is_seasonal'] }}" data-allergens="{{ flavor['ingredients'] }}">
+                    <h3>{{ flavor['name'] }}</h3>
+                   
+                    <p>{{ flavor['description'] }}</p>
+                    <a href="{{ url_for('cart.add_to_cart_route', flavor_id=flavor['id']) }}" class="add-to-cart-btn button">Add to Cart</a>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+   
+        <div class="allergens-section">
+            
+            <h2>Filter by Allergen</h2>
+            <label>
+                <input type="checkbox" class="allergen-checkbox" value="Milk" onclick="filterByAllergen()" {% if 'Milk' in selected_allergens %} checked {% endif %}> Milk
+            </label>
+            <label>
+                <input type="checkbox" class="allergen-checkbox" value="Peanuts" onclick="filterByAllergen()" {% if 'Peanuts' in selected_allergens %} checked {% endif %}> Peanuts
+            </label>
+            <label>
+                <input type="checkbox" class="allergen-checkbox" value="Sugar" onclick="filterByAllergen()" {% if 'Sugar' in selected_allergens %} checked {% endif %}> Sugar
+            </label>
+        
+           
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+
+</html>

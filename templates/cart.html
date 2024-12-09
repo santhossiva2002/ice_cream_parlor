@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_cart.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Your Cart</h1>
+    </header>
+    <div class="container">
+        {% if cart_items %}
+            <ul class="cart">
+                {% for item in cart_items %}
+                    <li>
+                        <span>{{ item['flavor_name'] }}</span>
+                        <a href="#">Remove</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <a href="{{ url_for('cart.clear_cart_route') }}"class="back-to-home">Clear Cart</a>
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+        <a href="{{ url_for('flavors.index') }}"class="back-to-home">Back to Flavors</a>
+    </div>
+</body>
+</html>
